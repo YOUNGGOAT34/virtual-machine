@@ -3,6 +3,9 @@
 
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
+#include <errno.h>
+#include <stdlib.h>
 
 
 
@@ -18,10 +21,10 @@ typedef long int i64;
 
 typedef i8 Stack[((u8)(-1))];
 
-typedef enum Opcode{
+typedef enum {
     MOV=0x01,
     NOP=0x02
-};
+}Opcode;
 
 typedef struct {
    Opcode opcode;
