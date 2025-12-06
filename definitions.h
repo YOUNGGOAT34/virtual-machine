@@ -16,6 +16,26 @@ typedef short int i16;
 typedef  int i32;
 typedef long int i64;
 
+typedef i8 Stack[1];
+
+typedef enum Opcode{
+    MOV=0x01,
+    NOP=0x02
+};
+
+typedef struct  Instruction{
+   Opcode opcode;
+   Args a[];
+   
+}Program;
+
+
+typedef struct instruction_map{
+     Opcode op;
+     i8 size;
+};
+
+
 typedef struct REGISTERS{
      u16 AX;
      u16 BX;
@@ -25,6 +45,10 @@ typedef struct REGISTERS{
      u16 IP;
 };
 
+// typedef struct Program{
+//     Instruction *instructions;
+// };
+
 typedef struct CPU{
    REGISTERS Registers;
 
@@ -32,6 +56,8 @@ typedef struct CPU{
 
 typedef struct VM{
     CPU cpu;
+    Stack stack;
+    Program *program;//sequence of instructions????????
      
 };
 
