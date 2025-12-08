@@ -6,6 +6,7 @@
 #include <string.h>
 #include <errno.h>
 #include <stdlib.h>
+#include <assert.h>
 
 
 
@@ -19,7 +20,7 @@ typedef short int i16;
 typedef  int i32;
 typedef long int i64;
 
-typedef i8 Stack[((u8)(-1))];
+typedef i8 Stack[((u32)(-1))];
 
 typedef enum {
     MOV=0x01,
@@ -50,6 +51,7 @@ typedef struct {
      u16 SP;
      u16 IP;
 }REGISTERS;
+
 
 
 

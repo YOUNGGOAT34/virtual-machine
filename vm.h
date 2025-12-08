@@ -3,6 +3,6 @@
 
 #include "definitions.h"
 
-VM *create_virtual_machine(void);
+VM *create_virtual_machine(Program *,u16);
 
 #endif
