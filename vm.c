@@ -1,4 +1,11 @@
 #include "vm.h"
+#include <stdio.h>
+#include <stdint.h>
+#include <string.h>
+#include <errno.h>
+#include <stdlib.h>
+#include <assert.h>
+
 
 VM *create_virtual_machine(Program *p ,u16 program_size){
     VM *machine=malloc(sizeof(struct VM));
@@ -25,6 +32,6 @@ VM *create_virtual_machine(Program *p ,u16 program_size){
     }
 
     memcpy(program_pointer,p,program_size);
-
+    
     return machine;
 }

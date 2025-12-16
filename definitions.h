@@ -1,14 +1,9 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-#include <stdio.h>
-#include <stdint.h>
-#include <string.h>
-#include <errno.h>
-#include <stdlib.h>
-#include <assert.h>
 
 
+#define OP_COUNT 3
 
 typedef unsigned char u8;
 typedef unsigned short int u16;
@@ -24,23 +19,15 @@ typedef i8 Stack[((u32)(-1))];
 
 typedef enum {
     MOV=0x01,
-    NOP=0x02
+    NOP=0x02,
+    
 }Opcode;
 
 typedef struct {
    Opcode opcode;
    u8 a[];
    
-}Program;
-
-
-/*
-    store the size of an opcode
-*/
-typedef struct {
-     Opcode op;
-     i8 size;
-}instruction_map;
+}Instruction;
 
 
 typedef struct {
@@ -53,6 +40,7 @@ typedef struct {
 }REGISTERS;
 
 
+typedef Instruction* Program;
 
 
 typedef struct{
@@ -63,16 +51,11 @@ typedef struct{
 typedef struct VM{
     CPU cpu;
     Stack stack;
-    Program *program;
+    Program program;
      
 }VM;
 
-static instruction_map _instruction_map[]={
-           {MOV,0x03},
-           {NOP,0x01}
-};
 
-
-
+extern const u8 instruction_map[];
 
 #endif
